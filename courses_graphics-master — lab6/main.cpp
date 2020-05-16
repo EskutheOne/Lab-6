@@ -14,7 +14,6 @@ void plotVec(int N, double* v);
 void scan(int* x);
 void wykres(double *T, int N);
 double wyznacznik(int N, double** K);
-double dete(double** mat, int n);
 
 double Tp = 273;
 double Tk = 300;
