@@ -19,6 +19,7 @@ double Tp = 273;
 double Tk = 300;
 double lambda = 58.0;
 double w1 = 1.0, w2 = -2.0, w3 = 1.0;			//wspolczynniki w rownaniu
+double L = 1.0;
 
 void main()
 {
@@ -59,6 +60,7 @@ void main()
 		}
 	}
 
+
 	HilbertMatrix(n, H);
 	printf("MACIERZ HILBERTA: \n");
 	displayMatrix(n, H);
@@ -68,7 +70,6 @@ void main()
 	gauss(n, H, x, b);
 	printf("WEKTOR X: \n");
 	plotVec(n, x);
-
 
 
 	printf("Zadanie 2. rozklad temperatury w precie \n\n");
@@ -91,7 +92,7 @@ void main()
 	free(F);
 	free(x);
 	free(b);
-	for (int k = 0; k < n; k++)
+	for (int k = 0; k < n+1; k++)
 	{
 		if (k < n)
 		{
@@ -185,7 +186,7 @@ void computeVec(int N, double** H, double* b)
 void computeVector(int N, double* F)
 {
 
-	double h = 1. / N;
+	double h = L / N;
 	double x = h;
 	for (int i = 1; i < N; i++)
 	{
@@ -220,7 +221,7 @@ void wykres(double* T, int N)
 		point(x, T[d]);
 		circle(x, T[d], 5);
 		lineto(x, T[d]);
-		x += 1. / N;
+		x += L / N;
 	}
 
 }
